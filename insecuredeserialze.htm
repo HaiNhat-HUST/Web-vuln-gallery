@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serialization and Insecure Deserialization</title>
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+            color: #ffffff;
+            background-color: #222;
+        }
+
+        .container {
+            display: flex;
+            width: 100%;
+        }
+
+        /* Left Side - Content */
+        .left-panel {
+            background-color: #1a1a1a;
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .content-container {
+            background-color: #333333;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            width: 100%;
+            max-width: 800px;
+            border: 1px solid #444;
+        }
+
+        .content-container h1, .content-container h2 {
+            text-align: center;
+            font-family: 'Noto Serif JP', serif;
+            text-shadow: 2px 2px 5px #333;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #f5f5f5;
+        }
+
+        .content-container pre, .content-container ul {
+            background-color: #222;
+            padding: 10px;
+            border-radius: 6px;
+            color: #ffffff;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1rem;
+            border: 1px solid #555;
+            margin-bottom: 20px;
+        }
+
+        .content-container pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        .content-container ul {
+            list-style: disc inside;
+        }
+
+        /* Right Side - Placeholder for Images (Optional) */
+        .right-panel {
+            flex: 1;
+            background-color: #222;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .image-preview img {
+            max-width: 90%;
+            max-height: 90%;
+            border: 5px solid #555;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left-panel">
+            <div class="content-container">
+                <h1>What is serialization?</h1>
+                <ul>
+                    <li>Serialization is the process of converting complex data structures, such as objects and their fields, into a "flatter" format that can be sent and received as a sequential stream of bytes.</li>
+                    <li>When serializing an object, its state is also persisted. In other words, the object's attributes are preserved, along with their assigned values.</li>
+                </ul>
+
+                <h2>Serialization vs deserialization</h2>
+                <ul>
+                    <li>Deserialization is the process of restoring this byte stream to a fully functional replica of the original object, in the exact state as when it was serialized.</li>
+                    <li>"serialization" ~ marshalling (Ruby) ~ pickling (Python)</li>
+                </ul>
+
+                <h1>What is insecure deserialization?</h1>
+                <p>update soon</p>
+
+                <h1>How do insecure deserialization vulnerabilities arise?</h1>
+                <p>update soon</p>
+
+                <h1>What is the impact of insecure deserialization?</h1>
+                <p>update soon</p>
+
+                <h1>Exploit</h1>
+
+                <h2>Identify insecure deserialization</h2>
+
+                <h3>PHP serialization format</h3>
+                <pre>
+O:4:"User":2:{s:4:"name":s:6:"carlos"; s:10:"isLoggedIn":b:1;}
+                </pre>
+
+                <h3>Java serialization format</h3>
+                <p>Some languages, including Java, use binary serialization formats, which can be recognized by a few tell-tale signs.</p>
+                <p>Serialized Java objects always begin with the same bytes (ex: ro0 in base64).</p>
+
+                <h2>Manipulating serialized objects</h2>
+                <ul>
+                    <li>Edit the object directly in its byte stream form</li>
+                    <li>Write a short script in the corresponding programming language to create and serialize the new object.</li>
+                </ul>
+
+                <h3>Modifying object attributes</h3>
+
+                <h3>Modifying data types</h3>
+
+                <h2>Using application functionality</h2>
+                <p>An attacker can use insecure deserialization to pass in unexpected data and leverage the related functionality to do damage.</p>
+
+                <h2>Magic methods</h2>
+                <p>Magic methods are a special subset of methods that are invoked automatically whenever a particular event or scenario occurs, instead of being invoked explicitly.</p>
+
+                <h2>Inject arbitrary objects</h2>
+
+                <h2>Gadget chains</h2>
+
+                <h3>Pre-built gadget chains</h3>
+                <ul>
+                    <li>ysoserial</li>
+                    <li>PHP Generic Gadget Chains</  li>
+                </ul>
+
+                <h3>Documented gadget chains</h3>
+                <p>update soon</p>
+
+                <h2>Creating your own exploit</h2>
+                <p>update soon</p>
+
+                <h2>PHAR deserialization</h2>
+            </div>
+        </div>
+        <div class="right-panel">
+            <div class="image-preview">
+                <!-- Optional image content -->
+            </div>
+        </div>
+    </div>
+</body>
+</html>

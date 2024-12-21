@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Content Display</title>
+    <script src="  https://cdn.jsdelivr.net/npm/showdown@1.9.0/dist/showdown.min.js"></script>
+</head>
+<body>
+    
+    <div id="content"></div>
+
+    <script>
+        // Function to fetch the content of the file
+        
+
+        async function fetchFileContent(fileName) {
+            try {
+                const response = await fetch(fileName);
+                if (!response.ok) {
+                    throw new Error(`Failed to fetch file: ${response.statusText}`);
+                }
+                const text = await response.text();
+                var converter = new showdown.converter();
+                html = converter.makeHtml(text);
+                    
+                document.getElementById('content').innerHTML = html;
+                
+            } catch (error) {
+                document.getElementById('content').innerHTML = `<p class='error'>${error.message}</p>`;
+            }
+        }
+
+        // Get the file name from the URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const fileName = urlParams.get('file');
+
+        if (fileName) {
+            fetchFileContent(fileName);
+        } else {
+            document.getElementById('content').innerHTML = "<p class='error'>No file name provided in the URL.</p>";
+        }
+    </script>
+</body>
+</html>
