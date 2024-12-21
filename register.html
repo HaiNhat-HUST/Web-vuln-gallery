@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP&family=Courier+New&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Left Panel -->
+        <div class="left-panel">
+            <div class="login-container">
+                <h2>Register</h2>
+                <form action="your_backend_script.php" method="POST" enctype="multipart/form-data">
+                    
+
+                    <div id="login-fields" class="input-group">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" name="username" required>
+
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" required>
+
+                        <label for="password">Confirm Password</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    
+                    <!-- Palm Print Image Upload -->
+                    <div id="palm-print-group" class="input-group hidden">
+                        <label for="palm-print">Upload Palm Print Image</label>
+                        <input type="file" id="palm-print" name="palm-print" class="file-input" accept="image/*" />
+                        <label for="palm-print" class="btn">Choose Palm Print Image</label>
+                    </div>
+
+                    <button type="submit" class="btn">Login</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Right Panel -->
+        <div class="right-panel">
+            <div class="image-preview" id="image-preview">
+                <img id="preview-img" src="image/favicon.jpg" alt="Palm Print Preview">
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>
